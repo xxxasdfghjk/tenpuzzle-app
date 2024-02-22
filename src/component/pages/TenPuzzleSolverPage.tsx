@@ -18,8 +18,7 @@ export type InputNumbers = Array<string>;
 const TenPuzzleSolverPage = () => {
     const [numbers, setNumbers] = useState<InputNumbers>(new Array(fieldNum).fill(""));
     const [result, setResult] = useState<string[]>([]);
-    const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
-        e.preventDefault();
+    const onComplete = () => {
         if (isAllInt(numbers)) {
             const res = uniq(
                 solve(
@@ -38,6 +37,10 @@ const TenPuzzleSolverPage = () => {
             toast.error("Please fill inputs by number!!");
         }
     };
+    const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+        e.preventDefault();
+        onComplete();
+    };
 
     return (
         <>
@@ -52,6 +55,7 @@ const TenPuzzleSolverPage = () => {
                     }
                     numbers={numbers}
                     fieldNum={fieldNum}
+                    onComplete={onComplete}
                 ></NumberInput>
                 <SubmitButton></SubmitButton>
             </form>

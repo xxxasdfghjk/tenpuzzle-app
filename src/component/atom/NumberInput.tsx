@@ -1,4 +1,3 @@
-import { Unstable_NumberInput } from "@mui/base";
 import { createRef, useRef } from "react";
 import { InputNumbers } from "../pages/TenPuzzleSolverPage";
 import { RefObject } from "react";
@@ -8,6 +7,7 @@ type Props = {
     numbers: InputNumbers;
     onChange: (index: number, newNumber: string) => void;
     fieldNum: number;
+    onComplete: () => void;
 };
 const range = (num: number) => {
     return new Array(num).fill(0).map((_, i) => i);
@@ -30,12 +30,19 @@ const NumberInput = (props: Props) => {
                     value={props.numbers[index]}
                     onChange={(e) => {
                         const num = e.target.value;
+                        if (num.length === 0) {
+                            props.onChange(index, "");
+                            return;
+                        }
                         if (!new RegExp("^[0-9]+$").test(num)) {
                             return;
                         }
                         props.onChange(index, num.length > 1 ? num.replace(props.numbers[index], "") : num);
                         if (inputRef.current[(index + 1) % props.fieldNum] !== undefined) {
                             inputRef.current[(index + 1) % props.fieldNum]?.current?.querySelector("input")?.focus();
+                        }
+                        if (index + 1 === props.fieldNum) {
+                            props.onComplete();
                         }
                     }}
                 />

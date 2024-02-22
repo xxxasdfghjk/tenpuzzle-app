@@ -13,13 +13,12 @@ const replaceMathSymbol = (str: string) => {
 };
 
 const ResultDisplay = (props: Props) => {
-    console.log(props.results);
     return props.results.length > 0 ? (
         <SWrapper>
             <STitle>Solutions</STitle>
 
             {props.results.map((e) => (
-                <SResult>
+                <SResult key={e}>
                     <InlineMath>{replaceMathSymbol(e)}</InlineMath>
                 </SResult>
             ))}
