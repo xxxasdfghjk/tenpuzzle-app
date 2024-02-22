@@ -1,7 +1,6 @@
-import { useState } from "react";
-import "./App.css";
+import TenPuzzleSolverPage from "./component/pages/TenPuzzleSolverPage";
 function App() {
-    return <></>;
+    return <TenPuzzleSolverPage></TenPuzzleSolverPage>;
 }
 
 export default App;
