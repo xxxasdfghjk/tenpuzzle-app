@@ -57,7 +57,8 @@ const SWrapper = styled("div")({
     "> input": { fontSize: "4rem" },
     maxWidth: "800px",
     margin: "0 auto",
-    padding: "200px 200px 40px 200px",
+    paddingTop: "120px",
+    paddingBottom: "30px",
     "> div": {
         padding: "5px",
     },
