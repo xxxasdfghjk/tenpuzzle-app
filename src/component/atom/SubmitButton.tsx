@@ -14,7 +14,7 @@ const SubmitButton = (_props: Props) => {
 const SButton = styled(Button)({
     width: "100%",
     margin: "0 auto",
-    height: "4em",
+    height: "2.4em",
     fontSize: "2.6em",
 });
 const SWrapper = styled("div")({
