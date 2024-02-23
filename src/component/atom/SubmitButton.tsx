@@ -1,7 +1,7 @@
 import { Button, styled } from "@mui/material";
 
 type Props = {};
-const SubmitButton = (props: Props) => {
+const SubmitButton = (_props: Props) => {
     return (
         <SWrapper>
             <SButton variant={"outlined"} type={"submit"}>
